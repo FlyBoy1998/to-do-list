@@ -32,6 +32,7 @@ body {
 
 h2 {
     color: darkblue;
+    font-size: 30px;
 }
 
 form {
@@ -122,4 +123,23 @@ li {
 
 .fa-circle-xmark:hover {
     color: rgb(179, 0, 0);
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (max-width: 768px) {
+    .list {
+        margin: 52px 40px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .list {
+        margin: 52px 20px;
+        padding: 40px 20px;
+    }
+
+    .title-container{
+        justify-content: center;
+    }
 }
