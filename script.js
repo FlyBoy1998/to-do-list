@@ -52,6 +52,12 @@ listContainer.addEventListener('click', (e) => {
         e.target.firstChild.classList.toggle('checked');
         e.target.firstChild.nextElementSibling.classList.toggle('checked');
         saveItems();
+    } else if(e.target.classList.contains('list-text')) {
+        e.target.classList.toggle('checked');
+        e.target.previousElementSibling.classList.toggle('checked');
+    } else if(e.target.classList.contains('fa-circle')){
+        e.target.classList.toggle('checked');
+        e.target.nextElementSibling.classList.toggle('checked');
     }
 
 })
