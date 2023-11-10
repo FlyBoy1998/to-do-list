@@ -89,6 +89,7 @@ ul {
 li {
     display: flex;
     align-items: center;
+    overflow-x: hidden;
     gap: 12px;
     margin-bottom: 20px;
     padding: 8px 12px;
