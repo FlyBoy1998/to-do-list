@@ -18,7 +18,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 600px;
-    height: 500px;
+    height: 400px;
     background-color: #ffffff79;
     margin-top: 52px;
     border-radius: 20px;
@@ -78,12 +78,12 @@ input:focus {
 .to-do-list-items {
     margin-top: 20px;
     flex: 1;
+    overflow-y: scroll;
+    height: 100%;
 }
 
 ul {
     list-style-type: none;
-    overflow-y: scroll;
-    height: 100%;
 }
 
 li {
