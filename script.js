@@ -1,7 +1,6 @@
 const listInput = document.getElementById('to-do-input');
 const addBtn = document.getElementById('add-btn');
 const listContainer = document.getElementById('list-container');
-const removeBtns = document.querySelectorAll('.remove-task-btn');
 
 function addTask(e) {
     e.preventDefault();
@@ -14,24 +13,45 @@ function addTask(e) {
         const checkCircle = document.createElement('i');
         checkCircle.setAttribute('class', 'fa-solid fa-circle');
         const listContent = document.createElement('p');
+        listContent.setAttribute('class', 'list-text');
         listContent.textContent = taskValue;
         const removeBtn = document.createElement('button');
         removeBtn.setAttribute('class', 'remove-task-btn');
         const removeBtnIcon = document.createElement('i');
-        removeBtnIcon.setAttribute('class', 'fa-solid fa-circle-xmark');
+        removeBtnIcon.setAttribute('class', 'fa-solid fa-xmark');
+        
         removeBtn.appendChild(removeBtnIcon);
         task.append(checkCircle, listContent, removeBtn);
         listContainer.appendChild(task);
         listInput.value = '';
+        saveItems();
     }
 }
 
+// Save Items in localStorage
+function saveItems() {
+    localStorage.setItem('tasks', listContainer.innerHTML)
+}
 
-removeBtns.forEach((btn) => {
-    btn.addEventListener('click', (e) => {
-        const listTask = e.currentTarget.parentElement;
-        listTask.remove();
-    })
-})
+// Fill DOM based on localStorage
+function showItems() {
+    listContainer.innerHTML = localStorage.getItem('tasks');
+}
 
+window.addEventListener('load', showItems);
 addBtn.addEventListener('click', addTask);
+listContainer.addEventListener('click', (e) => {
+    console.log(e.target);
+    if(e.target.classList.contains('fa-xmark')) {
+        e.target.parentElement.parentElement.remove();
+        saveItems();
+    } else if (e.target.classList.contains('remove-task-btn')) {
+        e.target.parentElement.remove();
+        saveItems()
+    } else if(e.target.tagName === 'LI'){
+        e.target.firstChild.classList.toggle('checked');
+        e.target.firstChild.nextElementSibling.classList.toggle('checked');
+        saveItems();
+    }
+
+})
