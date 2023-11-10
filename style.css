@@ -97,31 +97,42 @@ li {
     border-radius: 20px;
 }
 
-.fa-solid {
+.fa-circle {
     color: darkblue;
     cursor: pointer;
     transition: color 0.5s ease;
 }
 
-.fa-solid:hover {
+.fa-circle:hover {
     color: rgb(0, 0, 168);
 }
 
 .remove-task-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 30px;
     height: 30px;
     font-size: 22px;
     background-color: transparent;
     border: none;
     margin-left: auto;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    outline: none;
 }
 
-.fa-circle-xmark {
+.fa-xmark {
     color: red;
     transition: color 0.5s ease;
 }
 
-.fa-circle-xmark:hover {
+.remove-task-btn:hover {
+    background-color: #ffffff37;
+}
+
+.remove-task-btn:hover .fa-xmark {
     color: rgb(179, 0, 0);
 }
 
