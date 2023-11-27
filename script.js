@@ -41,7 +41,6 @@ function showItems() {
 window.addEventListener('load', showItems);
 addBtn.addEventListener('click', addTask);
 listContainer.addEventListener('click', (e) => {
-    console.log(e.target);
     if(e.target.classList.contains('fa-xmark')) {
         e.target.parentElement.parentElement.remove();
         saveItems();
